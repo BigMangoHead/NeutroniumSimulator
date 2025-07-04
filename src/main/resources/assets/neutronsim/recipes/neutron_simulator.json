@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "NNN",
+    "NCN",
+    "NNN"
+  ],
+  "key": {
+    "C": {
+      "item": "avaritia:neutronium_compressor"
+    },
+    "N": {
+      "item": "avaritia:block_resource",
+      "data": 0
+    }
+  },
+  "result": {
+    "item": "neutronsim:neutronium_simulator"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "neutronsim:watch_pedestal_item"
+    }
+  ],
+  "result": {
+    "item": "projecte:item.pe_time_watch"
+  }
+}

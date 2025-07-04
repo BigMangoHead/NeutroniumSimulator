@@ -32,8 +32,8 @@ public class NeutronSimTileEntity extends TileEntity implements ITickable {
 
     public static final ResourceLocation NEUTRONIUM_COMPRESSOR_LOCATION = new ResourceLocation("minecraft", "diamond");
     public static final ResourceLocation WATCH_OF_TIME_LOCATION = new ResourceLocation("minecraft", "redstone");
-    public static final ResourceLocation NEUTRONIUM_LOCATION = new ResourceLocation("minecraft", "iron_ingot");
-    private static final Item NEUTRONIUM_ITEM = GameRegistry.findRegistry(Item.class).getValue(NEUTRONIUM_LOCATION);
+    public static final ResourceLocation NEUTRONIUM_LOCATION = new ResourceLocation("minecraft", "stone");
+    private static final ItemStack NEUTRONIUM_ITEM = new ItemStack(GameRegistry.findRegistry(Item.class).getValue(NEUTRONIUM_LOCATION), 1, 1);
     public static final int TICKS_PER_INGOT = 100;
 
     private int progress = 0;
@@ -90,7 +90,6 @@ public class NeutronSimTileEntity extends TileEntity implements ITickable {
             progressPerTick = neutroniumCompressorCount*(1 + watchOfTimeCount*9);
         }
         tickCounter++;
-        NeutronSim.LOGGER.info("Progress: {}, Progress per tick: {}", progress, progressPerTick);
         progress += progressPerTick;
         if (progress > TICKS_PER_INGOT) {
             int toProduce = progress / TICKS_PER_INGOT;
@@ -98,8 +97,9 @@ public class NeutronSimTileEntity extends TileEntity implements ITickable {
 
             if (!inventoryNeutronium.getStackInSlot(0).isEmpty() && !inventoryNeutronium.getStackInSlot(0).getItem().getRegistryName().equals(NEUTRONIUM_LOCATION)) return;
             int curNeutronium = inventoryNeutronium.getStackInSlot(0).getCount();
-            // Hard coding the max stack size since I'm lazy
-            inventoryNeutronium.setStackInSlot(0, new ItemStack(NEUTRONIUM_ITEM, min(curNeutronium + toProduce, 64)));
+            ItemStack resultStack = NEUTRONIUM_ITEM.copy();
+            resultStack.setCount(min(curNeutronium + toProduce, NEUTRONIUM_ITEM.getMaxStackSize()));
+            inventoryNeutronium.setStackInSlot(0, resultStack);
 
         }
     }

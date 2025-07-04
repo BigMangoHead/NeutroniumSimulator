@@ -5,6 +5,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
@@ -105,5 +106,14 @@ public class NeutronSimBlock extends Block {
     @Override
     public boolean hasTileEntity(IBlockState state) {
         return true;
+    }
+
+    @Override
+    public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
+        super.addInformation(stack, worldIn, tooltip, flagIn);
+        tooltip.add("Compresses neutron collectors and watches");
+        tooltip.add("of flowing time into a single block.");
+        tooltip.add("Decreases the effectiveness of watches");
+        tooltip.add("by a factor of two.");
     }
 }

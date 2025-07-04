@@ -20,7 +20,7 @@ public class NeutronSimContainer extends Container {
     public NeutronSimContainer(InventoryPlayer playerInv, final NeutronSimTileEntity tileEntity) {
         IItemHandler inventoryMachines = tileEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, EnumFacing.UP);
         IItemHandler inventoryNeutronium = tileEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, EnumFacing.DOWN);
-        addSlotToContainer(new SlotItemHandler(inventoryMachines, 0, 71, 35) {
+        addSlotToContainer(new SlotItemHandler(inventoryMachines, 0, 71, 30) {
             @Override
             public void onSlotChanged() {
                 tileEntity.markDirty();
@@ -31,7 +31,7 @@ public class NeutronSimContainer extends Container {
                 return 100000000;
             }
         });
-        addSlotToContainer(new SlotItemHandler(inventoryMachines, 1, 89, 35) {
+        addSlotToContainer(new SlotItemHandler(inventoryMachines, 1, 89, 30) {
             @Override
             public void onSlotChanged() {
                 tileEntity.markDirty();
@@ -42,7 +42,7 @@ public class NeutronSimContainer extends Container {
                 return 100000000;
             }
         });
-        addSlotToContainer(new SlotItemHandler(inventoryNeutronium, 0, 89, 55) {
+        addSlotToContainer(new SlotItemHandler(inventoryNeutronium, 0, 80, 50) {
             @Override
             public void onSlotChanged() {
                 tileEntity.markDirty();

@@ -30,10 +30,10 @@ public class NeutronSimTileEntity extends TileEntity implements ITickable {
         }
     };
 
-    public static final ResourceLocation NEUTRONIUM_COMPRESSOR_LOCATION = new ResourceLocation("minecraft", "diamond");
-    public static final ResourceLocation WATCH_OF_TIME_LOCATION = new ResourceLocation("minecraft", "redstone");
-    public static final ResourceLocation NEUTRONIUM_LOCATION = new ResourceLocation("minecraft", "stone");
-    private static final ItemStack NEUTRONIUM_ITEM = new ItemStack(GameRegistry.findRegistry(Item.class).getValue(NEUTRONIUM_LOCATION), 1, 1);
+    public static final ResourceLocation NEUTRONIUM_COMPRESSOR_LOCATION = new ResourceLocation("avaritia", "neutronium_compressor");
+    public static final ResourceLocation WATCH_OF_TIME_LOCATION = new ResourceLocation("projecte", "item.pe_time_watch");
+    public static final ResourceLocation NEUTRONIUM_LOCATION = new ResourceLocation("avaritia", "resource");
+    private static final ItemStack NEUTRONIUM_ITEM = new ItemStack(GameRegistry.findRegistry(Item.class).getValue(NEUTRONIUM_LOCATION), 1, 4);
     public static final int TICKS_PER_INGOT = 100;
 
     private int progress = 0;

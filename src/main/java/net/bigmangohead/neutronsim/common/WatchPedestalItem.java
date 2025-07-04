@@ -8,6 +8,7 @@ public class WatchPedestalItem extends Item {
 
     public WatchPedestalItem() {
         this.name = "watch_pedestal_item";
+        setTranslationKey("watch_pedestal_item");
         setRegistryName(name);
     }
 

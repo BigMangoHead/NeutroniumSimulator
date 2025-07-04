@@ -3,6 +3,7 @@ package net.bigmangohead.neutronsim;
 import net.bigmangohead.neutronsim.common.ModGuiHandler;
 import net.bigmangohead.neutronsim.common.NeutronSimBlock;
 import net.bigmangohead.neutronsim.common.NeutronSimTileEntity;
+import net.bigmangohead.neutronsim.common.WatchPedestalItem;
 import net.bigmangohead.neutronsim.neutronsim.Tags;
 import net.bigmangohead.neutronsim.proxy.CommonProxy;
 import net.minecraft.block.Block;
@@ -43,6 +44,7 @@ public class NeutronSim {
     }
 
     public static NeutronSimBlock neutronSimBlock = new NeutronSimBlock().setCreativeTab(CreativeTabs.SEARCH);
+    public static WatchPedestalItem watchPedestalItem = new WatchPedestalItem();
 
     @Mod.EventBusSubscriber
     public static class RegistrationHandler {
@@ -58,6 +60,8 @@ public class NeutronSim {
         public static void registerItems(RegistryEvent.Register<Item> event) {
             IForgeRegistry<Item> registry = event.getRegistry();
             registry.register(neutronSimBlock.createItemBlock());
+            registry.register(watchPedestalItem);
+            watchPedestalItem.registerItemModel();
         }
 
         @SubscribeEvent

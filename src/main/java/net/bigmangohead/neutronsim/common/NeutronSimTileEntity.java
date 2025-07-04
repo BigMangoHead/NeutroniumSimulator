@@ -1,7 +1,5 @@
 package net.bigmangohead.neutronsim.common;
 
-import net.bigmangohead.neutronsim.NeutronSim;
-import net.minecraft.inventory.IInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -13,7 +11,6 @@ import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
-import net.minecraftforge.registries.IForgeRegistry;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -30,11 +27,11 @@ public class NeutronSimTileEntity extends TileEntity implements ITickable {
         }
     };
 
-    public static final ResourceLocation NEUTRONIUM_COMPRESSOR_LOCATION = new ResourceLocation("avaritia", "neutronium_compressor");
+    public static final ResourceLocation NEUTRON_COLLECTOR_LOCATION = new ResourceLocation("avaritia", "neutron_collector");
     public static final ResourceLocation WATCH_OF_TIME_LOCATION = new ResourceLocation("neutronsim", "watch_pedestal_item");
     public static final ResourceLocation NEUTRONIUM_LOCATION = new ResourceLocation("avaritia", "resource");
     private static final ItemStack NEUTRONIUM_ITEM = new ItemStack(GameRegistry.findRegistry(Item.class).getValue(NEUTRONIUM_LOCATION), 1, 4);
-    public static final int TICKS_PER_INGOT = 100;
+    public static final int TICKS_PER_INGOT = 7111*81;
 
     private int progress = 0;
     private int progressPerTick = 0;
@@ -80,7 +77,7 @@ public class NeutronSimTileEntity extends TileEntity implements ITickable {
     public void update() {
         if (tickCounter % 20 == 0) {
             int neutroniumCompressorCount = 0;
-            if (inventoryMachines.getStackInSlot(0).getItem().getRegistryName().equals(NEUTRONIUM_COMPRESSOR_LOCATION)) {
+            if (inventoryMachines.getStackInSlot(0).getItem().getRegistryName().equals(NEUTRON_COLLECTOR_LOCATION)) {
                 neutroniumCompressorCount = inventoryMachines.getStackInSlot(0).getCount();
             }
             int watchOfTimeCount = 0;
